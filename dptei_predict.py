@@ -1,7 +1,6 @@
 import streamlit as st
-import joblib
 import pandas as pd 
-
+import joblib
 
 # Load the saved model
 joblib_file = "rf_model.pkl"
@@ -10,7 +9,7 @@ loaded_model = joblib.load(joblib_file)
 
 # Define a function to make predictions using the loaded model
 def make_prediction(input_data):
-    # Convert input_data to DataFrame or the appropriate format for your model
+    # Convert input_data to DataFrame or the appropriate format for the model
     input_df = pd.DataFrame([input_data])
     prediction = loaded_model.predict(input_df)
     return prediction
