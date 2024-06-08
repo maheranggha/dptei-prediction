@@ -37,24 +37,32 @@ These features are chosen based on the *Feature Importances* score from Random F
 # Create two columns
 col1, col2 = st.columns(2)
 
-# Column 1: Demographic inputs
 with col1:
     st.write("### Demographic")
-    extra_curr = st.selectbox("Are you involved in Extra Curricular or Student Club?", ['Yes', 'No'])
-    sex = st.selectbox("Gender", ['Male', 'Female'])
-    M_Job = st.selectbox("What is your Mother's Job?", ['Labour', 'Government Worker', 'Farmer', 'Employee', 'Freelancer', 'Seller', 'Entrepreneur', 'Deceased', 'Retired', 'Not Working', 'Others'])
-    F_Job = st.selectbox("What is your Father's Job?", ['Labour', 'Government Worker', 'Farmer', 'Employee', 'Freelancer', 'Seller', 'Entrepreneur', 'Deceased', 'Retired', 'Not Working', 'Others'])
-    school_major = st.selectbox("High School Major*", ['Science', 'Social Science', 'EEC', 'Non-EEC'])
-    st.markdown("*EEC = Electrical, Electronics, or Computer-related major (Vocational)")
+    extra_curr = st.selectbox("Are you involved in Extra Curricular or Student Club?", ['Yes', 'No'],
+                              help="Select 'Yes' if you participate in any extracurricular activities or student clubs.")
+    sex = st.selectbox("Gender", ['Male', 'Female'],
+                       help="Select your gender.")
+    M_Job = st.selectbox("What is your Mother's Job?", ['Labour', 'Government Worker', 'Farmer', 'Employee', 'Freelancer', 'Seller', 'Entrepreneur', 'Deceased', 'Retired', 'Not Working', 'Others'],
+                         help="Select the occupation of your mother.")
+    F_Job = st.selectbox("What is your Father's Job?", ['Labour', 'Government Worker', 'Farmer', 'Employee', 'Freelancer', 'Seller', 'Entrepreneur', 'Deceased', 'Retired', 'Not Working', 'Others'],
+                         help="Select the occupation of your father.")
+    school_major = st.selectbox("School Major", ['Science', 'Social Science', 'EEC', 'Non-EEC'],
+                                help="Select your major in Senior High School. EEC = Electrical, Electronics, and Computer related (Vocational Schools)")
 
 # Column 2: Student Performance inputs
 with col2:
     st.write("### Student Performance")
-    gpa4 = st.number_input("GPA Semester 4", min_value=0.00, max_value=4.00, step=0.01, format="%.2f")
-    cgpa = st.number_input("Cumulative GPA", min_value=0.00, max_value=4.00, step=0.01, format="%.2f")
-    toefl = st.number_input("TOEFL Score", min_value=310, max_value=677, step=1)
-    Social_Science = st.number_input("Social Science Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f")
-    Programming = st.number_input("Programming Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f")
+    gpa4 = st.number_input("Current GPA or 4th GPA", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+                           help="Enter your current GPA or 4th semester GPA is more preferrable.\nMust be between 0.00 and 4.00.")
+    cgpa = st.number_input("Cumulative GPA", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+                           help="Enter your cumulative GPA.\nMust be between 0.00 and 4.00.")
+    toefl = st.number_input("TOEFL Score", min_value=310, max_value=677, step=1,
+                            help="Enter your first trial TOEFL score.\nMust be between 310 and 677.")
+    social_science = st.number_input("Social Science Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+                                     help="Enter your score of Social Science Courses such as Education Science, Entrepreneur, Project Management, etc. Average score of those scores is preferrable.\nMust be between 0.00 and 4.00.")
+    programming = st.number_input("Programming Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+                                  help="Enter your Programming courses related score such as Algorithm, Data Structure, Database, etc. Average score is prefferable.\nMust be between 0.00 and 4.00.")
 
 # Function to generate suggestions based on input data
 def generate_suggestions(input_data):
@@ -117,7 +125,7 @@ if st.button("Predict"):
         if graduation_status == 'Yes':
             st.success(f"The predicted graduation status is: **ON TIME** 🎓")
             st.balloons()
-            st.write("### Keep up the great work! You're on track to graduate on time.")
+            st.write("### Keep up the great work! \nYou're on track to graduate on time.")
         else:
             st.warning(f"The predicted graduation status is: **NOT ON TIME** 😢")
             st.write("Here are some suggestions to improve your chances of graduating on time:")
