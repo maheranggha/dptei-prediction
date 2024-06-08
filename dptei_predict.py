@@ -59,9 +59,9 @@ with col2:
                            help="Enter your cumulative GPA.\nMust be between 0.00 and 4.00.")
     toefl = st.number_input("TOEFL Score", min_value=310, max_value=677, step=1,
                             help="Enter your first trial TOEFL score.\nMust be between 310 and 677.")
-    social_science = st.number_input("Social Science Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+    Social_Science = st.number_input("Social Science Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
                                      help="Enter your score of Social Science Courses such as Education Science, Entrepreneur, Project Management, etc. Average score of those scores is preferrable.\nMust be between 0.00 and 4.00.")
-    programming = st.number_input("Programming Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
+    Programming = st.number_input("Programming Score", min_value=0.00, max_value=4.00, step=0.01, format="%.2f",
                                   help="Enter your Programming courses related score such as Algorithm, Data Structure, Database, etc. Average score is prefferable.\nMust be between 0.00 and 4.00.")
 
 # Function to generate suggestions based on input data
