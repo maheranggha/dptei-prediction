@@ -74,16 +74,16 @@ def generate_suggestions(input_data):
     if input_data['toefl'] < 425:
         suggestions.append("Consider improving your TOEFL score. Minimum require for graduation is 425!")
     if input_data['Social_Science'] < 3.67:
-        suggestions.append("Enhance your Social Science Courses score!")
+        suggestions.append("Enhance your Social Science Courses score! Score above 3.67 is advisable.")
     if input_data['Programming'] < 3.68:
-        suggestions.append("Work on your Programming skills. A score above 3.6 is advisable.")
+        suggestions.append("Work on your Programming skills. A score above 3.68 is advisable.")
     if input_data['extra_curr'] == 'yes':
         suggestions.append("You might need to spend less time in Extra Curricular or Student Club and focus more in your study!")
     if not suggestions:
-        suggestions.append("Keep up the good work and maintain your current performance levels.")
+        suggestions.append("Keep up the good work while try to improve your current performance levels.")
     return suggestions
 
-if st.button("Predict"):
+if st.button("Predict!"):
     # Input validation
     error_message = ""
     if not (0.00 <= gpa4 <= 4.00):
@@ -125,7 +125,7 @@ if st.button("Predict"):
         if graduation_status == 'Yes':
             st.success(f"The predicted graduation status is: **ON TIME** 🎓")
             st.balloons()
-            st.write("### Keep up the great work! \nYou're on track to graduate on time.")
+            st.write("### Keep up the great work! \n ### You're on track to graduate on time.")
         else:
             st.warning(f"The predicted graduation status is: **NOT ON TIME** 😢")
             st.write("Here are some suggestions to improve your chances of graduating on time:")
